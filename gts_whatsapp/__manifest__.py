@@ -7,6 +7,7 @@
     'price': 20,
     'website':'https://wlink.geektechsol.com'
     'currency': 'USD',
+    'currency': 'usd',
     'description':'static/description/index.html',
     'data': [
         'security/ir.model.access.csv',
