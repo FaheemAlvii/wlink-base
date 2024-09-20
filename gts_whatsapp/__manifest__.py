@@ -2,10 +2,9 @@
     'name': 'WLink QR Whatsapp API Base',
     'author': 'WLink',
     'license': 'LGPL-3',
-    'version': '17.0.1.0',
+    'version': '16.0.1.0',
     'depends': ['mail'],
     'website':'https://wlink.geektechsol.com',
-    'currency': 'usd',
     'images': ['static/description/banner.png'],
     'description':'static/description/index.html',
     'data': [
