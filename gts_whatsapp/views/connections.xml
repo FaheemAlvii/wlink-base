@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_whatsapp_connection_tree" model="ir.ui.view">
+        <field name="name">whatsapp.connection.tree</field>
+        <field name="model">whatsapp.connection</field>
+        <field name="arch" type="xml">
+            <tree string="Whatsapp Connections">
+                <field name="name"/>
+                <field name="logged_in"/>
+                <field name="requests_left"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_whatsapp_connection_form" model="ir.ui.view">
+        <field name="name">whatsapp.connection.form</field>
+        <field name="model">whatsapp.connection</field>
+        <field name="arch" type="xml">
+            <form string="Whatsapp Connection">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button string="Login" class="oe_stat_button" icon="fa-user" name="login" type="object"/>
+                        <button string="Logout" class="oe_stat_button" icon="fa-trash" name="logout" type="object"/>
+                        <button string="Set Default" class="oe_stat_button" icon="fa-server" help="If you click this button, This will become the default automatically selected connection" name="set_as_default_connection" type="object"/>
+                        <button string="Status" class="oe_stat_button" icon="fa-rotate-right" help="If you click this button, It will detect if you are logged in or not. And it also updates 'Requests Left Today'" name="check_status" type="object"/>
+                    </div>
+
+                    <group>
+                        <group col="2">
+                            <field name="name"/>
+                            <field name="client_secret"/>
+                        </group>
+                        <group col="2">
+                            <field name="logged_in" readonly="True"/>
+                            <field name="requests_left" readonly="True"/>
+                        </group>
+                    </group>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_whatsapp_connection" model="ir.actions.act_window">
+        <field name="name">Whatsapp Connections</field>
+        <field name="res_model">whatsapp.connection</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_whatsapp_connection_filter" model="ir.ui.view">
+        <field name="name">whatsapp.connection.search</field>
+        <field name="model">whatsapp.connection</field>
+        <field name="arch" type="xml">
+            <search string="Search Whatsapp Connections">
+                <filter name="filter_archived" string="Archived" domain="[('active', '=', False)]"/>
+
+                <group string="Group By">
+                    <filter name="group_by_name" string="Name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>
