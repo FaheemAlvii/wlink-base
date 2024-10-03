@@ -5,7 +5,7 @@
     'version': '17.0.1.0',
     'depends': ['mail'],
     'website':'https://wlink.geektechsol.com',
-    'images': ['static/description/banner.png'],
+    'images': ['static/description/banner_base.png'],
     'description':'static/description/index.html',
     'data': [
         'security/ir.model.access.csv',
